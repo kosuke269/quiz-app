@@ -1,20 +1,18 @@
 package com.example.quizapp;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Controller
-@RequestMapping("page")
-public class QuizAppController {
+//API.....Application Programing Interface
+@RestController
+public class QuizApiController {
     //クラス Quiz
     private List<Quiz> quizzes =new ArrayList<>();
     private QuizFileDao quizFileDao =new QuizFileDao();
@@ -27,10 +25,11 @@ public class QuizAppController {
     }
 
     //showメソッド
+    //戻り値 List<Quiz>型
+    //引数はない
     @GetMapping("/show")
-    public String show(Model model) {
-        model.addAttribute("quizzes",quizzes);
-        return "list";
+    public List<Quiz> show() {
+        return quizzes;
     }
 
     //createメソッド
