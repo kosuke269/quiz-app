@@ -21,10 +21,10 @@ public class QuizAppController {
     private QuizFileDao quizFileDao =new QuizFileDao();
 
     @GetMapping("/quiz")
-    public Quiz quiz(){
-        int index = new Random().nextInt(quizzes.size()); //引数が3の場合 0〜2 乱数
-
-        return quizzes.get(index);
+    public String quiz(Model model){
+        int index=new Random().nextInt(quizzes.size());
+        model.addAttribute("quiz",quizzes.get(index));
+        return "quiz";
     }
 
     //showメソッド
