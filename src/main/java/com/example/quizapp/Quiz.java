@@ -36,3 +36,4 @@ public class Quiz {
         return question+" "+marubatsu;
     }
 }
+
