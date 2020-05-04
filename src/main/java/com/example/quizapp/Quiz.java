@@ -28,11 +28,6 @@ public class Quiz {
     public String toString(){
 //        条件演算子
         String marubatsu=answer?"○":"×";
-//        if(answer){
-//            marubatsu="○";
-//        }else{
-//            marubatsu="×";
-//        }
         return question+" "+marubatsu;
     }
 }
