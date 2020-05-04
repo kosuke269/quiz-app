@@ -34,13 +34,14 @@ public class QuizAppController {
     }
 
     //createメソッド
-    //戻り値はない
     //引数はString型のquestion,boolean型のanswer(問題の正解)
     @PostMapping("/create")
-    public void create(@RequestParam String question, @RequestParam boolean answer){
+    public String create(@RequestParam String question, @RequestParam boolean answer){
         Quiz quiz =new Quiz(question,answer);
         quiz.getQuestion();
         quizzes.add(quiz);
+
+        return "redirect:/page/show";
     }
 
     //checkメソッド
