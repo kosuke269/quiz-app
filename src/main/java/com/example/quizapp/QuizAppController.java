@@ -56,3 +56,4 @@ public class QuizAppController {
         return "問題がありません";
     }
 }
+
